@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<%= form_tag places_path, :method=> 'get' do %> 
+	school:<%= select_tag "school", options_for_select(["","낙생고","불곡고", "분당고", "수지고" ]) %>
+    station:<%= select_tag "station", options_for_select(["","정자역","미금역", "수내역", "서현역", "오리역", "죽전역" ]) %>
+		<%= submit_tag "Search",:name=>nil %>
+<% end %>
+<% @places.each do |place| %>
+  <h2><%= place.name %></h2>
+  <div class="row">
+  <% place.menus.each do |menu| %>
+ 	<div class="col-xs-4">
+      <p><a href="<%=menu_path(menu) %>"><img src='<%= menu.pictures.first.picture_path %>'</image></a></p>
+ 	</div>
+  <% end %>
+</div>
+<% end %>
+<br>
+<%= paginate @places %>

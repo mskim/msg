@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>식당:</strong>
+  <%= @menu.place.name %>
+</p>
+<p>
+  <strong>메뉴:</strong>
+  <%= @menu.name %>
+</p>
+<% @menu.pictures.each do |picture| %>
+
+<p><img src ="<%= picture.picture_path %>"></img></p>
+
+<% end %>
+<%= link_to 'Edit', edit_menu_path(@menu) %> |
+<%= link_to 'Back', menus_path %>
