@@ -2,6 +2,9 @@
 
 Dir.glob("#{Rails.root}/public/menu/**/*") do |f|
   if File.file? f
+    next if f =~/reduced/
+    next if f =~/high/
+    
     picture = File.basename(f)
     path_array = f.split("/")
     menu = path_array[-2]
