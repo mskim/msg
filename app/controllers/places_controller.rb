@@ -5,12 +5,12 @@ class PlacesController < ApplicationController
   # GET /places.json
   def index
     quary_hash = {}
-    quary_hash[:school]   = params[:school]   if params[:school] != "" || nil
-    quary_hash[:station]  = params[:station]  if params[:station] != "" || nil
-    quary_hash[:library]  = params[:library]  if params[:library] != "" || nil
-    quary_hash[:city]     = params[:city]     if params[:city] != "" || nil
-    puts "quary_hash:#{quary_hash}"    
+    quary_hash[:school]   = params[:school]   if params[:school] != "" && !params[:school].nil?
+    quary_hash[:station]  = params[:station]  if params[:station] != "" && !params[:school].nil?
+    quary_hash[:library]  = params[:library]  if params[:library] != "" && !params[:school].nil?
+    quary_hash[:city]     = params[:city]     if params[:city] != "" && !params[:school].nil?
     @places = Place.where(quary_hash).page(params[:page]).per(3)
+    @places
   end
 
   # GET /places/1
