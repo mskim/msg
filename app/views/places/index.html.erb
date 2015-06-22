@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <%= form_tag places_path, :method=> 'get' do %> 
-	school:<%= select_tag "학교", options_for_select(["","낙생고","불곡고", "분당고", "수지고" ]) %>
-    station:<%= select_tag "지하철역", options_for_select(["","정자역","미금역", "수내역", "서현역", "오리역", "죽전역" ]) %>
+	학교:<%= select_tag "school", options_for_select(["","낙생고","불곡고", "분당고", "수지고" ]) %>
+    지하철역:<%= select_tag "station", options_for_select(["","정자역","미금역", "수내역", "서현역", "오리역", "죽전역" ]) %>
 		<%= submit_tag "Search",:name=>nil %>
 <% end %>
 <% @places.each do |place| %>
