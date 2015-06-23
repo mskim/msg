@@ -5,8 +5,9 @@
     지하철역:<%= select_tag "station", options_for_select(["","정자역","미금역", "수내역", "서현역", "오리역", "죽전역" ]) %>
 		<%= submit_tag "Search",:name=>nil %>
 <% end %>
+</br>
 <% @places.each do |place| %>
-  <h2><%= place.name %></h2>
+  <button type="button" class="btn btn-warning"><%= place.name %></button>
   <div class="row">
   <% place.menus.each do |menu| %>
  	<div class="col-xs-4">
